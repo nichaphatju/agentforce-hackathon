@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_1</activeVersionIdentifier>
+    <description>This prompt template searches for property records that match the given criteria.</description>
+    <developerName>Search_Property</developerName>
+    <masterLabel>Search Property</masterLabel>
+    <templateVersions>
+        <content>You are a real estate agent assistant. You are helping the customer to search for available properties that match their requirements.
+
+You must search only from the list of properties:
+{!$Apex:SearchProperties.Prompt}
+
+The properties must match all the following criteria:
+Preferred location/city/suburb: {!$Input:location}
+Maximum Price or Price Range: {!$Input:price}
+Other requirements, e.g. property type, number of bedrooms, number of bathrooms, amenities, features, and other relevant details: {!$Input:additional_detail}.
+
+Follow all instructions below when searching:
+&quot;&quot;&quot;
+If a preferred location is specified, you must include ONLY the properties that are located in the preferred location/city/suburb, and
+If the customer defines the price or price range ({!$Input:price}), you must include only properties where the current price or value is less than or within the price range in the result.
+Sort properties by best fit the given criteria, considering factors such as closest location, price, number of bedrooms, property type, amenities, and other relevant details.
+&quot;&quot;&quot;
+
+Return a maximum of 5 properties that you found from the list. You must include the following information as a result.
+Property Name: [This is the property Name field that starts with &quot;P&quot;].
+Property Type: [This is the property type (e.g. House/Apartment)].
+Address: [Location of the property]
+Price: [Current Price of the property]
+Details: [Display the number of bedrooms, number of bathrooms, and number of parking slots, if there are any]
+View Property: [Property Link]
+
+Ensure that the property link directs to the listing&apos;s detailed page.
+
+Also, you must always ask if the user would like to book for an inspection or needs further assistance.
+
+If no property matches the requirements, you must politely tell the user that there is no available property that matches the criteria at this time, so the user can change the criteria or come back later.
+</content>
+        <inputs>
+            <apiName>location</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>location</masterLabel>
+            <referenceName>Input:location</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>price</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>price</masterLabel>
+            <referenceName>Input:price</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>additional_detail</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>additional detail</masterLabel>
+            <referenceName>Input:additional_detail</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>oppType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>oppType</masterLabel>
+            <referenceName>Input:oppType</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://SearchProperties</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>oppType</parameterName>
+                <valueExpression>{!$Input:oppType}</valueExpression>
+            </parameters>
+            <referenceName>Apex:SearchProperties</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_1</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

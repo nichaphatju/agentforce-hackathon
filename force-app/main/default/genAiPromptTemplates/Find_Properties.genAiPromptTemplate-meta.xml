@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_6</activeVersionIdentifier>
+    <description>This prompt template searches for property records that match the given criteria.</description>
+    <developerName>Find_Properties</developerName>
+    <masterLabel>Find Properties</masterLabel>
+    <templateVersions>
+        <content>You are a real estate agent assistant. You are searching for the available properties that match the specific criteria.
+The criteria are as per the following.
+&quot;
+1. The current price of the property must be lower or equal to {!$Input:Budget}.
+2. The location of the property must be nearby or in {!$Input:Location} an area.
+3. The property must be available for {!$Input:OppType} according to the opportunity record.
+4. The property details should match the following criteria: &quot;{!$Input:SearchKey}&quot;
+&quot;
+
+Please only search for the list of properties below.
+
+</content>
+        <inputs>
+            <apiName>SearchKey</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Search Key</masterLabel>
+            <referenceName>Input:SearchKey</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Budget</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Budget</masterLabel>
+            <referenceName>Input:Budget</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Location</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Location</masterLabel>
+            <referenceName>Input:Location</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>OppType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>OppType</masterLabel>
+            <referenceName>Input:OppType</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a real estate agent assistant. You are searching for the available properties that match the specific criteria.
+The criteria are as per the following.
+&quot;&quot;&quot;
+1. The current price of the property must be lower or equal to {!$Input:Budget}.
+2. The location of the property must be nearby or in {!$Input:Location} an area.
+3. The property must be available for {!$Input:OppType} according to the opportunity record.
+4. The property details or features should match the following criteria: &quot;{!$Input:SearchKey}&quot;
+&quot;&quot;&quot;
+
+Please only search from the list of properties below.
+&quot;&quot;&quot;{!$Apex:SearchProperties.Prompt}&quot;&quot;&quot;
+
+Please provide a maximum closet 5 rows that you can find from the list. Include the following information as a result.
+&quot;&quot;&quot;
+Property Name: This is the property Name field that starts with &quot;P&quot;.
+Address: Location of the property
+Price: Current Price of the property
+Details: Display the number of bedrooms, number of bathrooms, and number of parking slots if there are any
+Property Link
+&quot;&quot;&quot;
+
+If you can&apos;t find any property that matches the requirements, please answer &quot;There&apos;s no available property that matches the criteria. Please update the criteria or come back later&quot;
+</content>
+        <inputs>
+            <apiName>SearchKey</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Search Key</masterLabel>
+            <referenceName>Input:SearchKey</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Budget</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Budget</masterLabel>
+            <referenceName>Input:Budget</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Location</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Location</masterLabel>
+            <referenceName>Input:Location</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>OppType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>OppType</masterLabel>
+            <referenceName>Input:OppType</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://SearchProperties</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>OppType</parameterName>
+                <valueExpression>{!$Input:OppType}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Budget</parameterName>
+                <valueExpression>{!$Input:Budget}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Location</parameterName>
+                <valueExpression>{!$Input:Location}</valueExpression>
+            </parameters>
+            <referenceName>Apex:SearchProperties</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a real estate agent assistant. You are searching for the available properties that match the specific criteria.
+The criteria are as per the following.
+&quot;&quot;&quot;
+1. The current price of the property must be within the 10% range lower or over {!$Input:Budget}.
+2. The location of the property must be close to {!$Input:Location} or in {!$Input:Location}.
+3. The property descriptions or features should match the following criteria: &quot;{!$Input:SearchKey}&quot;
+&quot;&quot;&quot;
+
+Please only search from the list of properties below.
+&quot;&quot;&quot;{!$Apex:SearchProperties.Prompt}&quot;&quot;&quot;
+
+You must provide a maximum closet 5 rows that you can find from the list. You must include the following information as a result.
+&quot;&quot;&quot;
+Property Name: This is the property Name field that starts with &quot;P&quot;.
+Address: Location of the property
+Price: Current Price of the property
+Details: Display the number of bedrooms, number of bathrooms, and number of parking slots if there are any
+Property Link
+&quot;&quot;&quot;
+
+If you can&apos;t find any property that matches the requirements, please answer &quot;There&apos;s no available property that matches the criteria. Please update the criteria or come back later&quot;
+</content>
+        <inputs>
+            <apiName>SearchKey</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Search Key</masterLabel>
+            <referenceName>Input:SearchKey</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Budget</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Budget</masterLabel>
+            <referenceName>Input:Budget</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Location</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Location</masterLabel>
+            <referenceName>Input:Location</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>OppType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>OppType</masterLabel>
+            <referenceName>Input:OppType</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://SearchProperties</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>OppType</parameterName>
+                <valueExpression>{!$Input:OppType}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Budget</parameterName>
+                <valueExpression>{!$Input:Budget}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Location</parameterName>
+                <valueExpression>{!$Input:Location}</valueExpression>
+            </parameters>
+            <referenceName>Apex:SearchProperties</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a real estate agent assistant. You are searching for the available properties that match the specific criteria.
+The criteria are as per the following.
+&quot;&quot;&quot;
+1. The property price or value must be lower than or equal to {!$Input:Budget} OR less than 10% over {!$Input:Budget}.
+2. The location of the property must be located within 20 km from {!$Input:Location} or in {!$Input:Location}.
+3. The property descriptions or features should match the following criteria: &quot;{!$Input:SearchKey}&quot;
+&quot;&quot;&quot;
+
+Please only search from the list of properties below.
+&quot;&quot;&quot;{!$Apex:SearchProperties.Prompt}&quot;&quot;&quot;
+
+You must provide a maximum closet 5 rows that you can find from the list. You must include the following information as a result.
+&quot;&quot;&quot;
+Property Name: This is the property Name field that starts with &quot;P&quot;.
+Address: Location of the property
+Price: Current Price of the property
+Details: Display the number of bedrooms, number of bathrooms, and number of parking slots if there are any
+Provide a link to access the record
+&quot;&quot;&quot;
+
+If you can&apos;t find any property that matches the requirements, please answer &quot;There&apos;s no available property that matches the criteria. Please update the criteria or come back later&quot;
+</content>
+        <inputs>
+            <apiName>SearchKey</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Search Key</masterLabel>
+            <referenceName>Input:SearchKey</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Location</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Location</masterLabel>
+            <referenceName>Input:Location</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Budget</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Budget</masterLabel>
+            <referenceName>Input:Budget</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>OppType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>OppType</masterLabel>
+            <referenceName>Input:OppType</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://SearchProperties</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>OppType</parameterName>
+                <valueExpression>{!$Input:OppType}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Budget</parameterName>
+                <valueExpression>{!$Input:Budget}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Location</parameterName>
+                <valueExpression>{!$Input:Location}</valueExpression>
+            </parameters>
+            <referenceName>Apex:SearchProperties</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a real estate agent assistant. You are searching for the available properties that match the specific criteria.
+The criteria are as per the following.
+&quot;&quot;&quot;
+1. The property price or value must be lower than or equal to {!$Input:Budget} OR less than 10% over {!$Input:Budget}.
+2. The location of the property must be located within 20 km from {!$Input:Location} or in {!$Input:Location}.
+3. The property descriptions or features should match the following criteria: &quot;{!$Input:SearchKey}&quot;
+&quot;&quot;&quot;
+
+Please only search from the list of properties below.
+&quot;&quot;&quot;{!$Apex:SearchProperties.Prompt}&quot;&quot;&quot;
+
+You must provide a maximum of 5 rows that you can find in the list. You must include the following information as a result.
+&quot;&quot;&quot;
+Property Name: This is the property Name field that starts with &quot;P&quot;.
+Address: Location of the property
+Price: Current Price of the property
+Details: Display the number of bedrooms, number of bathrooms, and number of parking slots, if there are any
+Provide a link to access the record
+&quot;&quot;&quot;
+
+If you can&apos;t find any property that matches the requirements, please answer &quot;There&apos;s no available property that matches the criteria. Please update the criteria or come back later&quot;
+</content>
+        <inputs>
+            <apiName>SearchKey</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Search Key</masterLabel>
+            <referenceName>Input:SearchKey</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Location</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Location</masterLabel>
+            <referenceName>Input:Location</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Budget</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Budget</masterLabel>
+            <referenceName>Input:Budget</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>OppType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>OppType</masterLabel>
+            <referenceName>Input:OppType</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://SearchProperties</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>OppType</parameterName>
+                <valueExpression>{!$Input:OppType}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Budget</parameterName>
+                <valueExpression>{!$Input:Budget}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Location</parameterName>
+                <valueExpression>{!$Input:Location}</valueExpression>
+            </parameters>
+            <referenceName>Apex:SearchProperties</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a real estate agent assistant. You are searching for the available properties that match the specific criteria.
+
+You must search only from the list of properties below.
+&quot;&quot;&quot;{!$Apex:SearchProperties.Prompt}&quot;&quot;&quot;
+
+The searching criteria are as per the following.
+&quot;&quot;&quot;
+{!$Input:SearchKey}.
+If the user has a limited budget, you must filter out the properties where the current price or value is more expensive than their budget. 
+&quot;&quot;&quot;
+
+You must provide a maximum of 5 rows that you can find in the list. You must include the following information as a result.
+&quot;&quot;&quot;
+Property Name: This is the property Name field that starts with &quot;P&quot;.
+Address: Location of the property
+Price: Current Price of the property
+Details: Display the number of bedrooms, number of bathrooms, and number of parking slots, if there are any
+A link to view the property detail
+&quot;&quot;&quot;
+
+If you can&apos;t find any property that matches the requirements, please answer &quot;There&apos;s no available property that matches the criteria. Please update the criteria or come back later&quot;
+</content>
+        <inputs>
+            <apiName>OppType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>OppType</masterLabel>
+            <referenceName>Input:OppType</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>SearchKey</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Search Key</masterLabel>
+            <referenceName>Input:SearchKey</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Location</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Location</masterLabel>
+            <referenceName>Input:Location</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Budget</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Budget</masterLabel>
+            <referenceName>Input:Budget</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://SearchProperties</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>OppType</parameterName>
+                <valueExpression>{!$Input:OppType}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Budget</parameterName>
+                <valueExpression>{!$Input:Budget}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>Location</parameterName>
+                <valueExpression>{!$Input:Location}</valueExpression>
+            </parameters>
+            <referenceName>Apex:SearchProperties</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a real estate agent assistant. You are helping the customer to search for available properties that match their requirements or are the closest match.
+
+You must search only from the list of properties: {!$Apex:SearchProperties.Prompt}.
+The searching criteria are as per the following:
+Preferred Location: {!$Input:Location}
+Price Range: {!$Input:Budget}
+Other requirements: {!$Input:SearchKey}
+
+If the user has a limited budget, you must filter out the properties where the current price or value is more expensive than their budget.
+If a preferred location is specified, include properties in and around that area.
+Prioritize properties that best fit the given criteria, considering factors such as price, number of bedrooms, property type, amenities, and other relevant details.
+
+If more than 5 properties match the criteria, you must provide a maximum of 5 rows that you can find in the list. You must include the following information as a result.
+Property Name: [This is the property Name field that starts with &quot;P&quot;].
+Address: [Location of the property]
+Price: [Current Price of the property]
+Details: [Display the number of bedrooms, number of bathrooms, and number of parking slots, if there are any]
+View Property: [Property Link]
+
+Ensure that the property link directs to the listing&apos;s detailed page.
+
+Also, you must always ask if the user would like to book for an inspection or needs further assistance.
+
+If no property matches the requirements, you must politely tell the user that there is no available property that matches the criteria at this time, so the user can change the criteria or come back later.
+</content>
+        <inputs>
+            <apiName>OppType</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>OppType</masterLabel>
+            <referenceName>Input:OppType</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>SearchKey</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Search Key</masterLabel>
+            <referenceName>Input:SearchKey</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Budget</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Budget</masterLabel>
+            <referenceName>Input:Budget</referenceName>
+            <required>true</required>
+        </inputs>
+        <inputs>
+            <apiName>Location</apiName>
+            <definition>primitive://String</definition>
+            <masterLabel>Location</masterLabel>
+            <referenceName>Input:Location</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultGPT4Omni</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>apex://SearchProperties</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>OppType</parameterName>
+                <valueExpression>{!$Input:OppType}</valueExpression>
+            </parameters>
+            <referenceName>Apex:SearchProperties</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>Wjj/qGLaWtnHcWU1+HaSl5xjunGrNUPruvTKXQ74x70=_7</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

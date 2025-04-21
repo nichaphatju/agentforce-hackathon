@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Takes a DateTime (entered as if in the timezone of the running user) and returns a string in specified format, in specified datetime. If timezone is null, uses the timezone of running user.</description>
+    <invocationTarget>DateTimeConverterController</invocationTarget>
+    <invocationTargetType>apex</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+    <masterLabel>DateTimeConverterController</masterLabel>
+</GenAiFunction>

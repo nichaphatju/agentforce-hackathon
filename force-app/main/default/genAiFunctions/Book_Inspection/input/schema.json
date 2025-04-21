@@ -1,0 +1,42 @@
+{
+  "required" : [ "customerEmail", "customerFirstName", "customerLastName", "inspectDateTime", "propertyName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "customerEmail" : {
+      "title" : "customerEmail",
+      "description" : "Customer email, which is used to identify the customer, and receive the email confirmation after booking the inspection.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "customerFirstName" : {
+      "title" : "customerFirstName",
+      "description" : "Customer's First Name, is required for identifying the customer.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "customerLastName" : {
+      "title" : "customerLastName",
+      "description" : "Customer's Last Name, is required for identifying the customer.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "inspectDateTime" : {
+      "title" : "inspectDateTime",
+      "description" : "Customer's preferred inspection date and time.",
+      "lightning:type" : "lightning__dateTimeStringType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "propertyName" : {
+      "title" : "propertyName",
+      "description" : "a text, which starts with \"P\" to identify the property that the customer would like to inspect.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,14 @@
+{
+  "required" : [ "propertyName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "propertyName" : {
+      "title" : "propertyName",
+      "description" : "A text, which starts with \"P\", is input by the customer to identify the property.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

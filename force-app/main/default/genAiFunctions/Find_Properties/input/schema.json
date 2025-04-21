@@ -1,0 +1,42 @@
+{
+  "required" : [ "Input:Budget", "Input:OppType", "Input:SearchKey", "Input:Location" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:Budget" : {
+      "title" : "Budget",
+      "description" : "a number or currency, given by the user, to determine the maximum budget of the property",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:OppType" : {
+      "title" : "OppType",
+      "description" : "a text input by the user to determine if user would like to rent or buy the property",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Input:SearchKey" : {
+      "title" : "Search Key",
+      "description" : "a text input by the user to determine what kind of property they're looking for",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Input:Location" : {
+      "title" : "Location",
+      "description" : "a text input by the user to determine which location of the property they're looking for",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

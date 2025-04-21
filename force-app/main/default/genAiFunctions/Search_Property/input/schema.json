@@ -1,0 +1,42 @@
+{
+  "required" : [ "Input:oppType", "Input:price", "Input:location", "Input:additional_detail" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "Input:oppType" : {
+      "title" : "oppType",
+      "description" : "A text input from the customer to determine if the customer would like to rent or buy the property.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "Input:price" : {
+      "title" : "price",
+      "description" : "The customer's budget or the maximum price of the property that the customer is searching for.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:location" : {
+      "title" : "location",
+      "description" : "The location or area of the property that the customer is searching for.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "Input:additional_detail" : {
+      "title" : "additional detail",
+      "description" : "A text that indicates additional details of the property, such as property type (e.g. House/Apartment), number of bedrooms, number of bathrooms, amenities, features, and other relevant details.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "citationMode" : {
+      "title" : "Citation Mode",
+      "description" : "Select Citation Mode",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,20 @@
+<apex:page renderAs="pdf" cache="true" showHeader="false" sidebar="false" controller="ComparedPropertiesPDFCtrl" applyHtmlTag="false" applyBodyTag="false"  >
+
+    <head>
+        <style>
+
+            @page{
+
+                margin-top:1cm;
+                margin-bottom:0cm;
+
+            }
+
+        </style>
+    </head>
+
+    <apex:outputPanel rendered="{!content != null}">
+       <apex:outputtext value="{!content}" escape="false" />
+    </apex:outputPanel>
+
+</apex:page>

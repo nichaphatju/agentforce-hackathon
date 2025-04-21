@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>This topic handles user requests to search for properties that match specified criteria.</description>
+    <developerName>Property_Search</developerName>
+    <genAiFunctions>
+        <functionName>Search_Property</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Generate_Compared_PDF</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Always confirm with the user if they need further assistance or additional searches.</description>
+        <developerName>instruction_alwaysconf0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_alwaysconf0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Ask the user for the criteria they are looking for in a property, such as location, price range, number of bedrooms, etc., if applicable</description>
+        <developerName>instruction_asktheuser1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_asktheuser1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Before answering the user, you must call the &quot;Generate Compared PDF&quot; action with the list of properties you got from the &quot;Search Property&quot; action, then present the user with a list of properties that match their criteria, with the result of generated PDF from &quot;Generated Compared PDF&quot; action</description>
+        <developerName>instruction_beforeansw2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_beforeansw2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If no properties match the criteria, ask the user if they would like to adjust their criteria and search again.</description>
+        <developerName>instruction_ifnoproper3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifnoproper3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Search the property database using the criteria provided by the user.</description>
+        <developerName>instruction_searchthep4</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_searchthep4</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>You should ensure that the property search results include a link to a PDF file comparing the properties.</description>
+        <developerName>instruction_youshoulde5</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_youshoulde5</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Property Search</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to assist users in finding properties that meet their specified criteria. You should not provide financial, legal, or other non-property search-related advice.</scope>
+</GenAiPlugin>

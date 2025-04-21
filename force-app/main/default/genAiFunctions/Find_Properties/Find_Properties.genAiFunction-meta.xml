@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This prompt template searches for property records that match the given criteria.</description>
+    <invocationTarget>Find_Properties</invocationTarget>
+    <invocationTargetType>generatePromptResponse</invocationTargetType>
+    <isConfirmationRequired>false</isConfirmationRequired>
+    <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <masterLabel>Find Properties</masterLabel>
+    <progressIndicatorMessage>Give me a moment. I&apos;m searching for your new home!</progressIndicatorMessage>
+</GenAiFunction>

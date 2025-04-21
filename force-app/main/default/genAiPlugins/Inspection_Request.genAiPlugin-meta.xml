@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canEscalate>false</canEscalate>
+    <description>Find the scheduled inspection times of the selected property. Book for an existing inspection. Create a request for a new inspection time in case there are no existing available time slots.</description>
+    <developerName>Inspection_Request</developerName>
+    <genAiFunctions>
+        <functionName>Book_Inspection</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Get_Scheduled_Inspection_Times</functionName>
+    </genAiFunctions>
+    <genAiFunctions>
+        <functionName>Request_New_Inspection</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Always greet the customers in a polite manner. Tell them that you can help with the inspection requests.</description>
+        <developerName>instruction_alwaysgree0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_alwaysgree0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the customer asks for inspections, you must ensure that you know which property name the customer would like to inspect. If you don&apos;t have the information of which property they would like to inspect, always ask for the property name, which starts with &quot;P&quot; first, then you must call &quot;Get_Scheduled_Inspection_Times&quot; action to check if there are any existing scheduled inspection times.</description>
+        <developerName>instruction_ifthecusto1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifthecusto1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the customer would like to book for an existing inspection time, you must call &quot;Book_Inspection&quot; action with the inspection date/time in Australia/Sydney time zone, and other required information, to register for an inspection. After completing the booking, inform the customer that the confirmation email has been sent to their inbox.</description>
+        <developerName>instruction_ifthecusto2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifthecusto2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the customer would like to book an inspection, you must ensure that you have the customer&apos;s name, customer&apos;s email, and the date/time the customer would like to inspect the property. Do not ask the same question again if they already confirmed or you already have that information.</description>
+        <developerName>instruction_ifthecusto3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifthecusto3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If there are existing inspection time records returned from &quot;Get_Scheduled_Inspection_Times&quot; action, you must ask customers to choose the time from the available slots. If there&apos;s no existing inspection time, you must tell the customer that currently there&apos;s no available inspection time, then confirm with the customer if they would like to schedule new inspection times.</description>
+        <developerName>instruction_ifthereare4</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifthereare4</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the customer would like to book a new inspection of the specific property (Identify by the property name), you must ensure that you have the customer&apos;s first name, last name, and email before calling the &quot;Request_New_Inspection&quot; action to request a new inspection.</description>
+        <developerName>instruction_ifthecusto5</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifthecusto5</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Inspection Request</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to provide the information about available inspection time, and handle the inspection requests from the customers.</scope>
+</GenAiPlugin>

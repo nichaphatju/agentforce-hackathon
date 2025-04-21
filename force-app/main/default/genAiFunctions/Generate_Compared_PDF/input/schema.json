@@ -1,0 +1,14 @@
+{
+  "required" : [ "properties" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "properties" : {
+      "title" : "properties",
+      "description" : "This is a JSON string that contains a list of the properties to be compared",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

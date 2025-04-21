@@ -1,0 +1,42 @@
+{
+  "required" : [ "customerEmail", "customerFirstName", "customerLastName", "propertyName" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "customerEmail" : {
+      "title" : "customerEmail",
+      "description" : "An email of the customer who would like to request an inspection",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "customerFirstName" : {
+      "title" : "customerFirstName",
+      "description" : "First name of the customer who would like to request an inspection",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "customerLastName" : {
+      "title" : "customerLastName",
+      "description" : "Last name of the customer who would like to request an inspection",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "message" : {
+      "title" : "message",
+      "description" : "Message from the customer who would like to book an inspection",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "propertyName" : {
+      "title" : "propertyName",
+      "description" : "A property name, which starts with \"P\", to determine the property that the customer would like to inspect.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
